@@ -1,0 +1,15 @@
+{
+    "name": "tproger-moderator",
+    "author": "Vladislav Marchenko <marlock@etlgr.com> (https://github.com/KaMeHb-UA)",
+    "contributors": [
+    ],
+    "dependencies": {
+    },
+    "repository": {
+        "type" : "git",
+        "url" : "https://github.com/KaMeHb-UA/TProger-moderator.git"
+    },
+    "scripts": {
+        "start": "node main"
+    }
+}
