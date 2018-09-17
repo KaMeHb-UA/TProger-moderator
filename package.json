@@ -1,17 +1,17 @@
 {
     "name": "tproger-moderator",
     "author": "Vladislav Marchenko <marlock@etlgr.com> (https://github.com/KaMeHb-UA)",
-    "contributors": [
-    ],
+    "contributors": [],
     "dependencies": {
+        "telegraf": "^3.23.1"
     },
     "repository": {
-        "type" : "git",
-        "url" : "https://github.com/KaMeHb-UA/TProger-moderator.git"
+        "type": "git",
+        "url": "https://github.com/KaMeHb-UA/TProger-moderator.git"
     },
     "scripts": {
-        "start": "node main",
-        "postinstall": "node -e 'const {spawnSync:spawn} = require(\"child_process\"); (require(\"./package.json\").noEdit || []).forEach(ne => spawn(\"git\", [\"checkout\", ne])); require(\"middlewares/settings/check_token\")()'"
+        "start": "node -e 'require(\"middlewares/settings/check_token\")()' && node main",
+        "postinstall": "node -e 'const {spawnSync:spawn} = require(\"child_process\"); (require(\"./package.json\").noEdit || []).forEach(ne => spawn(\"git\", [\"checkout\", ne]))'"
     },
     "noEdit": [
         "node_modules/middlewares",
