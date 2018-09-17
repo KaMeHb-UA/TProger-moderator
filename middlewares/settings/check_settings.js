@@ -16,12 +16,17 @@ function getInput(question){
     })
 }
 /**
- * @param {String} name 
+ * @param {String} name
  */
 async function checkSetting(name){
     if(!settings[name]) settings[name] = await getInput(`Please enter bot ${name}: `)
 }
-module.exports = () => Promise.all([
-    checkSetting('token'),
-    checkSetting('target chat id'),
-]);
+var settingsToCheck = [
+    'token',
+    'target chat id',
+    'chat history cache (look at https://github.com/KaMeHb-UA/TProger-moderator/blob/master/CHCType.md)',
+];
+settingsToCheck.forEach((name, i) => {
+    settingsToCheck[i] = checkSetting(name)
+});
+module.exports = async () => { await Promise.all(settingsToCheck) }
