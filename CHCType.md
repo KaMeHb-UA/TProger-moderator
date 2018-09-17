@@ -1,4 +1,4 @@
-# Chat History Chache
+# Chat History Cache
 This is little cache that contains user names, messages count and first message date formatted like next (each at new line and without whitespace):
 ```
 userId - messages count - first message timestamp
