@@ -10,8 +10,9 @@
         "url": "https://github.com/KaMeHb-UA/TProger-moderator.git"
     },
     "scripts": {
-        "start": "node -e 'require(\"middlewares/settings/check_token\")()' && node main",
-        "postinstall": "node -e 'const {spawnSync:spawn} = require(\"child_process\"); (require(\"./package.json\").noEdit || []).forEach(ne => spawn(\"git\", [\"checkout\", ne]))'"
+        "start": "node entry",
+        "postinstall": "node -e 'const {spawnSync:spawn} = require(\"child_process\"); (require(\"./package.json\").noEdit || []).forEach(ne => spawn(\"git\", [\"checkout\", ne]))'",
+        "debug": "yarn start --debug"
     },
     "noEdit": [
         "node_modules/middlewares",
