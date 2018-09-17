@@ -10,6 +10,14 @@
         "url" : "https://github.com/KaMeHb-UA/TProger-moderator.git"
     },
     "scripts": {
-        "start": "node main"
+        "start": "node main",
+        "postinstall": "node -e 'const {spawnSync:spawn} = require(\"child_process\"); (require(\"./package.json\").noEdit || []).forEach(ne => spawn(\"git\", [\"checkout\", ne]))'"
+    },
+    "noEdit": [
+        "node_modules/middlewares",
+        "middlewares/node_modules/internals"
+    ],
+    "engines": {
+        "node": ">=6.0.0"
     }
 }
