@@ -1,7 +1,9 @@
 {
     "name": "tproger-moderator",
     "author": "Vladislav Marchenko <marlock@etlgr.com> (https://github.com/KaMeHb-UA)",
-    "contributors": [],
+    "contributors": [
+        "TpouHuK <ilovepotatoj@gmail.com> (https://github.com/tpouhuk)"
+    ],
     "dependencies": {
         "telegraf": "^3.23.1"
     },
