@@ -1,9 +1,13 @@
-const fs = require('fs'),
-    zlib = require('zlib');
+const zlib = require('zlib'),
+    settingsSaver = require('./save_settings');
+/**
+ * @type {Settings}
+ */
+var res;
 try{
-    var res = require('internals/settings.json')
+    res = require('internals/settings.json')
 } catch(e){
-    var res = {}
+    res = {}
 }
 if(res['chat history cache']){
     let list = zlib.gunzipSync(Buffer.from(res['chat history cache'], 'base64')).toString();
@@ -18,16 +22,7 @@ if(res['chat history cache']){
         })
     });
 }
-/**
- * @type {Settings}
- */
-module.exports = new Proxy(res, {
-    get(target, name){
-        return target[name]
-    },
-    set(target, name, value){
-        target[name] = value;
-        fs.writeFileSync(__dirname + '/../node_modules/internals/settings.json', JSON.stringify(target, null, '    '), 'utf8');
-        return true
-    }
-})
+process.on('beforeExit', () => {
+    settingsSaver(res)
+});
+module.exports = res
