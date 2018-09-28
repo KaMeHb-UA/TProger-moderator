@@ -5,15 +5,17 @@ const settings = require('middlewares/settings');
  * @return {Number}
  */
 exports.increase = ctx => {
-    settings['chat history cache'].forEach(({uid, msgCount}, i) => {
+    for(var i = 0; i < settings['chat history cache'].length; i++){
+        const {uid, msgCount} = settings['chat history cache'][i];
         if(uid == ctx.from.id){
             settings['chat history cache'][i].msgCount = ++msgCount;
             return msgCount
         }
-    });
+    }
     settings['chat history cache'].push({
         uid: ctx.from.id,
         msgCount: 1,
         firstMsgDate: Math.floor(new Date / 1000)
-    })
+    });
+    return 1
 }
