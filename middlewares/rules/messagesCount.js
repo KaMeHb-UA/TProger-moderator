@@ -1,5 +1,4 @@
-const TelegrafContext = require('telegraf/core/context'),
-    settings = require('middlewares/settings');
+const settings = require('middlewares/settings');
 /**
  * Increments messages count for specified user and returns new count
  * @param {TelegrafContext} ctx

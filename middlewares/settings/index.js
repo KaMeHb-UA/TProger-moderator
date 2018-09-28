@@ -22,7 +22,13 @@ if(res['chat history cache']){
         })
     });
 }
-process.on('beforeExit', () => {
-    settingsSaver(res)
-});
+function exitHandler(){
+    settingsSaver(res);
+    process.exit(0)
+}
+process.on('beforeExit', exitHandler);
+process.on('SIGINT', exitHandler);
+process.on('SIGUSR1', exitHandler);
+process.on('SIGUSR2', exitHandler);
+
 module.exports = res

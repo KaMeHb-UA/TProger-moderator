@@ -1,8 +1,10 @@
 const Telegraf = require('telegraf'),
-    bot = new Telegraf(require('middlewares/settings').token);
+    settings = require('middlewares/settings'),
+    rules = require('middlewares/rules'),
+    bot = new Telegraf(settings.token);
 
 bot.on('message', ctx => {
-    console.log(ctx)
+    if(rules.isBot(ctx)) ctx.reply(`Похоже на бота 😑\n${rules.adminNicks.join(', ')}, проверьте, а?`)
 });
 
 bot.startPolling()

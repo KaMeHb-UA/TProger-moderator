@@ -5,6 +5,7 @@
         "TpouHuK <ilovepotatoj@gmail.com> (https://github.com/tpouhuk)"
     ],
     "dependencies": {
+        "json5": "^2.1.0",
         "telegraf": "^3.23.1"
     },
     "repository": {
