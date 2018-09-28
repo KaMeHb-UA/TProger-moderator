@@ -6,7 +6,7 @@ const settings = require('middlewares/settings');
  */
 exports.increase = ctx => {
     for(var i = 0; i < settings['chat history cache'].length; i++){
-        const {uid, msgCount} = settings['chat history cache'][i];
+        var {uid, msgCount} = settings['chat history cache'][i];
         if(uid == ctx.from.id){
             settings['chat history cache'][i].msgCount = ++msgCount;
             return msgCount
