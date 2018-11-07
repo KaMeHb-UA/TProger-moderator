@@ -1,4 +1,5 @@
 require('json5/lib/register');
+
 const safeRequire = (allowedRequireExtensions => {
     const cache = {};
     return (
@@ -21,9 +22,7 @@ const safeRequire = (allowedRequireExtensions => {
     'json5',
     'json',
 ]);
-/**
- * @type {Rules}
- */
+
 module.exports = new Proxy({}, {
     get(_, name){
         return safeRequire(`${__dirname}/${name}`);
