@@ -1,3 +1,5 @@
+require('json5/lib/register');
+
 const Telegraf = require('telegraf'),
     settings = require('middlewares/settings'),
     rules = require('middlewares/rules'),

@@ -1,5 +1,3 @@
-require('json5/lib/register');
-
 const safeRequire = (allowedRequireExtensions => {
     const cache = {};
     return (
